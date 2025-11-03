@@ -3,166 +3,41 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Akhmads Earn — Coming Soon</title>
+  <title>Akhmads Earn — Video</title>
   <style>
-    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
     body {
       margin: 0;
       padding: 0;
       background-color: #000;
-      color: #00ff80;
-      font-family: 'Share Tech Mono', monospace;
       height: 100vh;
+      width: 100vw;
       overflow: hidden;
       display: flex;
-      align-items: center;
       justify-content: center;
-    }
-
-    /* Floating phone frame */
-    .phone {
-      width: 320px;
-      height: 600px;
-      background: #010101;
-      border: 3px solid #00ff80;
-      border-radius: 35px;
-      box-shadow: 0 0 40px #00ff80, inset 0 0 15px #00ff80;
-      position: relative;
-      overflow: hidden;
-      animation: float 6s ease-in-out infinite;
-    }
-
-    @keyframes float {
-      0%, 100% { transform: translateY(0) rotate(-1deg); }
-      50% { transform: translateY(-20px) rotate(1deg); }
-    }
-
-    /* Hacker code background */
-    .matrix {
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 200%;
-      height: 200%;
-      color: #00ff80;
-      font-size: 16px;
-      line-height: 1.4em;
-      white-space: pre;
-      opacity: 0.3;
-      text-shadow: 0 0 8px #00ff80, 0 0 12px #00ff80;
-      animation: scroll 15s linear infinite;
-      z-index: 0;
-    }
-
-    @keyframes scroll {
-      from { transform: translateY(0); }
-      to { transform: translateY(-50%); }
-    }
-
-    /* Foreground content */
-    .screen {
-      position: absolute;
-      width: 100%;
-      height: 100%;
-      display: flex;
-      flex-direction: column;
       align-items: center;
-      justify-content: center;
-      text-align: center;
-      z-index: 2;
-      backdrop-filter: blur(1.5px);
     }
 
-    /* Logo */
-    .logo svg {
-      width: 70px;
-      height: 70px;
-      stroke: #00ff80;
-      animation: flicker 2s infinite alternate;
-      filter: drop-shadow(0 0 10px #00ff80);
-    }
-
-    /* Title */
-    h1 {
-      font-size: 1.9rem;
-      margin: 20px 0 10px;
-      color: #00ff80;
-      text-shadow: 0 0 15px #00ff80, 0 0 35px #00ff80;
-      animation: flicker 3s infinite alternate;
-    }
-
-    /* SOON text */
-    .soon {
-      font-size: 1.6rem;
-      color: #00ff80;
-      text-shadow: 0 0 20px #00ff80, 0 0 50px #00ff80;
-      animation: glow 2s ease-in-out infinite alternate;
-      font-weight: bold;
-    }
-
-    @keyframes glow {
-      from { opacity: 0.6; }
-      to { opacity: 1; }
-    }
-
-    @keyframes flicker {
-      0%, 18%, 22%, 25%, 53%, 57%, 100% { opacity: 1; }
-      20%, 24%, 55% { opacity: 0.4; }
-    }
-
-    footer {
-      position: absolute;
-      bottom: 20px;
-      width: 100%;
-      text-align: center;
-      font-size: 0.8rem;
-      color: #00ff80;
-      opacity: 0.9;
-      z-index: 2;
-    }
-
-    footer a {
-      color: #00ff80;
-      text-decoration: none;
+    video {
+      max-width: 100%;
+      max-height: 100%;
+      object-fit: contain;
+      display: block;
     }
   </style>
 </head>
 <body>
-  <div class="phone">
-    <div class="matrix">
-[BOOT] AKHMADS_EARN INITIALIZING...
-USER: AKHMADJONOV | ACCESS_GRANTED | MODE: DARK_NET
-> EARN_PROTOCOL v3.7 ACTIVATED
-> CONNECTING... API_STATUS: OK
-> RUNNING BOT_FACTORY()
-> FOUND: 127 ACTIVE SYSTEMS
-> LINKING WALLETS... $$$ DETECTED
-> NET SYNC: 100%
-> SYSTEM_MESSAGE: “THE FUTURE IS AUTOMATED”
-> LAUNCH_READY // CODE: 0x4A9F
-> CREATING CONNECTION... DONE
-> BOT_CLUSTER: ONLINE
-> STATUS: STABLE
-> REVENUE FLOW: UP ↑↑↑
-> AKHMADS_EARN // SYSTEM LIVE
-> STAY READY...
-> SOON...
-    </div>
+  <video id="video" autoplay loop muted playsinline>
+    <source src="IMG_3094.MP4" type="video/mp4">
+    Your browser does not support the video tag.
+  </video>
 
-    <div class="screen">
-      <div class="logo">
-        <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 24 24" fill="none" stroke="#00ff80" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M14.536 21.686a.5.5 0 0 0 .937-.024l6.5-19a.496.496 0 0 0-.635-.635l-19 6.5a.5.5 0 0 0-.024.937l7.93 3.18a2 2 0 0 1 1.112 1.11z"></path>
-          <path d="m21.854 2.147-10.94 10.939"></path>
-        </svg>
-      </div>
-      <h1>AKHMADS EARN_</h1>
-      <div class="soon">SOON...</div>
-    </div>
-
-    <footer>
-      <a href="https://t.me/akhmadjonovCEO">@akhmadjonovCEO</a>
-    </footer>
-  </div>
+  <script>
+    const video = document.getElementById('video');
+    // Foydalanuvchi bosganda ovozni yoqamiz
+    document.body.addEventListener('click', () => {
+      video.muted = false;
+      video.play();
+    });
+  </script>
 </body>
 </html>
