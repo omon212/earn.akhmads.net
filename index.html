@@ -15,6 +15,8 @@
       display: flex;
       justify-content: center;
       align-items: center;
+      position: relative;
+      font-family: Arial, sans-serif;
     }
 
     video {
@@ -23,21 +25,56 @@
       object-fit: contain;
       display: block;
     }
+
+    #unmute {
+      position: absolute;
+      bottom: 30px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: rgba(255, 255, 255, 0.8);
+      color: #000;
+      padding: 12px 20px;
+      border-radius: 30px;
+      font-size: 16px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      z-index: 10;
+      user-select: none;
+    }
+
+    #unmute:hover {
+      background: #fff;
+      transform: translateX(-50%) scale(1.05);
+    }
+
+    #unmute.hidden {
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity 0.5s ease;
+    }
   </style>
 </head>
 <body>
-  <video id="video" autoplay loop muted playsinline>
+  <video id="video" autoplay loop muted playsinline webkit-playsinline>
     <source src="IMG_3094.MP4" type="video/mp4">
     Your browser does not support the video tag.
   </video>
 
+  <div id="unmute">🔊 Tap to unmute</div>
+
   <script>
     const video = document.getElementById('video');
-    // Foydalanuvchi bosganda ovozni yoqamiz
-    document.body.addEventListener('click', () => {
+    const unmute = document.getElementById('unmute');
+
+    // Foydalanuvchi bosganda ovoz yoqiladi
+    function enableSound() {
       video.muted = false;
-      video.play();
-    });
+      video.play().catch(err => console.log('Play blocked:', err));
+      unmute.classList.add('hidden');
+      document.body.removeEventListener('click', enableSound);
+    }
+
+    document.body.addEventListener('click', enableSound);
   </script>
 </body>
 </html>

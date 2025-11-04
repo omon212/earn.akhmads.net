@@ -1,0 +1,167 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Akhmads Earn — Video Animation</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Share+Tech+Mono&display=swap');
+
+    body {
+      margin: 0;
+      height: 100vh;
+      background: radial-gradient(circle at center, #001500 0%, #000 100%);
+      overflow: hidden;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'Share Tech Mono', monospace;
+      color: #00ff80;
+    }
+
+    /* scan line overlay */
+    .scanlines {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        to bottom,
+        rgba(0, 255, 128, 0.05) 0px,
+        rgba(0, 255, 128, 0.05) 1px,
+        transparent 2px,
+        transparent 3px
+      );
+      animation: scan 5s linear infinite;
+      pointer-events: none;
+    }
+
+    @keyframes scan {
+      from { background-position-y: 0; }
+      to { background-position-y: 100%; }
+    }
+
+    /* background matrix-like flow */
+    .matrix {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      color: rgba(0, 255, 128, 0.15);
+      font-size: 14px;
+      white-space: pre;
+      overflow: hidden;
+      text-shadow: 0 0 10px rgba(0,255,128,0.2);
+      animation: moveMatrix 20s linear infinite;
+      z-index: 1;
+    }
+
+    @keyframes moveMatrix {
+      from { transform: translateY(0); }
+      to { transform: translateY(-50%); }
+    }
+
+    /* central cinematic effect */
+    .center {
+      position: relative;
+      text-align: center;
+      z-index: 5;
+      animation: fadeIn 2s ease-out forwards;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: scale(0.9); }
+      to { opacity: 1; transform: scale(1); }
+    }
+
+    .logo {
+      font-size: 3rem;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: #00ff80;
+      text-shadow: 0 0 20px #00ff80, 0 0 40px #00ffaa;
+      animation: glitch 3s infinite, pulse 2s infinite alternate;
+    }
+
+    @keyframes glitch {
+      0%, 100% { transform: translate(0); }
+      20% { transform: translate(-2px, 2px); }
+      40% { transform: translate(2px, -2px); }
+      60% { transform: translate(-1px, 1px); }
+      80% { transform: translate(1px, -1px); }
+    }
+
+    @keyframes pulse {
+      from { opacity: 0.7; filter: drop-shadow(0 0 10px #00ff80); }
+      to { opacity: 1; filter: drop-shadow(0 0 30px #00ffaa); }
+    }
+
+    .soon {
+      font-size: 1.8rem;
+      color: #00ffcc;
+      margin-top: 20px;
+      text-shadow: 0 0 15px #00ffcc, 0 0 35px #00ffaa;
+      opacity: 0;
+      animation: showSoon 8s infinite;
+    }
+
+    @keyframes showSoon {
+      0%, 30% { opacity: 0; transform: translateY(15px); }
+      40%, 80% { opacity: 1; transform: translateY(0); }
+      100% { opacity: 0; transform: translateY(-15px); }
+    }
+
+    /* light flash effect */
+    .flash {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(0,255,128,0.2), transparent 70%);
+      mix-blend-mode: screen;
+      opacity: 0;
+      animation: flashAnim 5s infinite;
+    }
+
+    @keyframes flashAnim {
+      0%, 90%, 100% { opacity: 0; }
+      45% { opacity: 0.2; }
+      50% { opacity: 0.5; }
+      55% { opacity: 0.2; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <div class="matrix">
+    [BOOT] SYSTEM STARTING...  
+    USER: AKHMADJONOV  
+    NETWORK: AKHMADS_NET  
+    STATUS: ONLINE  
+    API.CONNECT() ✓  
+    EARN.PROTOCOL: RUNNING  
+    STREAMING DATA... $$$  
+    DETECTED CLIENTS → 47  
+    REVENUE FLOW: UP  
+    SIGNAL: MAXIMUM  
+    LOADING INTERFACE...  
+    >> INITIATE LAUNCH SEQUENCE  
+    >> LAUNCHING BOT SYSTEM  
+    3... 2... 1...  
+    READY.  
+    SYSTEM: STANDBY.  
+    SOON...  
+  </div>
+
+  <div class="flash"></div>
+  <div class="scanlines"></div>
+
+  <div class="center">
+    <div class="logo">AKHMADS EARN</div>
+    <div class="soon">SOON...</div>
+  </div>
+
+</body>
+</html>
